@@ -1,0 +1,14 @@
+{
+  "name": "functional-javascript",
+  "version": "1.0.0",
+  "description": "DoLim's functional programming with javascript study.",
+  "main": "index.js",
+  "repository": "https://github.com/imdigo/functional-javascript.git",
+  "author": "DoLim <limdongyoung0@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  }
+}
