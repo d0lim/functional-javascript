@@ -1,0 +1,5 @@
+# tasks:
+# - init: zsh
+#     command: go run
+image:
+  file: .gitpod.Dockerfile
