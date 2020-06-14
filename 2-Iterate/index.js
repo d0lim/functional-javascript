@@ -61,3 +61,54 @@ for (const a of map.entries()) log(a);
  * - 이터레이터 : { value, done } 객체를 리턴하는 next() 를 가진 값. 이터레이터.next()를 호출하면 { value, done }가 리턴된다는 뜻
  * - 이터러블 / 이터레이터 프로토콜 : 이터러블을 for ... of, 전개 연산자(...) 등과 함께 동작하도록 하는 프로토콜(규약)
  */
+
+/**
+ * ### 사용자 정의 이터러블을 통해 알아보기
+ */
+const iterable = {
+  [Symbol.iterator]() {
+    let i = 3;
+    return {
+      next() {
+        return i == 0
+          ? { done: true }
+          : {
+              value: i--,
+              done: false,
+            };
+      },
+      [Symbol.iterator]() {
+        return this;
+      },
+    };
+  },
+};
+let iterator = iterable[Symbol.iterator]();
+log(iterator.next());
+log(iterator.next());
+log(iterator.next());
+log(iterator.next());
+log(iterator.next());
+
+for (const a of iterable) log(a);
+
+const arr2 = [1, 2, 3];
+let iter2 = arr2[Symbol.iterator]();
+// iter2.next();
+// log(iter2[Symbol.iterator]() == iter2);
+// for (const a of iter2) log(a);
+
+/**
+ * ### 많은 곳에 적용된 이터러블 / 이터레이터 프로토콜
+ */
+
+// 아래와 같읕 코드가 브라우저 상에서 실행이 됨
+// for (const a of document.querySelectorAll("*")) log(a);
+
+/**
+ * ## 전개 연산자
+ */
+console.clear();
+const a = [1, 2];
+// a[Symbol.iterator] = null;
+log(...a, ...[3, 4], ...arr, ...set, ...map.keys());
