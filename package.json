@@ -6,6 +6,7 @@
   "repository": "https://github.com/imdigo/functional-javascript.git",
   "author": "DoLim <limdongyoung0@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {},
   "devDependencies": {
     "nodemon": "^2.0.4",
