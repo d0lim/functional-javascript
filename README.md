@@ -5,4 +5,4 @@ Study repo for javascript with functional programming
 Learning from inflearn lecture
 
 ## Requirements
-You need parcel to run server with HTML.
+You need parcel to run server with HTML
