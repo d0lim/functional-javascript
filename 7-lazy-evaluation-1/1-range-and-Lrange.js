@@ -41,3 +41,35 @@ L.range = function* (l) {
 var list = range(4);
 log(list);
 log(reduce(add, list));
+
+function test(name, time, f) {
+  console.time(name);
+  while (time--) f();
+  console.timeEnd(name);
+}
+
+// test("range", 10, () => reduce(add, range(10000000)));
+// test("range", 10, () => reduce(add, L.range(10000000)));
+
+console.clear();
+
+/**
+ * ## take
+ */
+
+const take = curry((l, iter) => {
+  let res = [];
+  for (const a of iter) {
+    res.push(a);
+    if (res.length == l) return res;
+  }
+  return res;
+});
+
+console.time("");
+go(range(100000), take(5), reduce(add), log);
+console.timeEnd("");
+
+console.time("");
+go(L.range(100000), take(5), reduce(add), log);
+console.timeEnd("");
