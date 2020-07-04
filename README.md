@@ -10,4 +10,4 @@ You need nodemon for running js files
 
 ## Todo
 Add yarn script to simplify the running process.  
-Directory by directory
+Directory by directory..
