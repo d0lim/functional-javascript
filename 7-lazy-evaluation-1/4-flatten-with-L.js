@@ -50,3 +50,59 @@ L.deepFlat = function* f(iter) {
 };
 
 log([...L.deepFlat([1, [2, [3, 4], [[5]]]])]);
+
+console.clear();
+
+/**
+ * ## L.flatMap
+ */
+
+L.flatMap = curry(pipe(L.map, L.flatten));
+const flatMap = curry(pipe(L.map, flatten));
+
+var it = L.flatMap(
+  map((a) => a * a),
+  [
+    [1, 2],
+    [3, 4],
+    [5, 6, 7],
+  ]
+);
+log([...it]);
+
+log(
+  flatMap((a) => a, [
+    [1, 2],
+    [3, 4],
+    [5, 6, 7],
+  ])
+);
+
+log(
+  flatMap(
+    L.range,
+    map((a) => a + 1, [1, 2, 3])
+  )
+);
+
+var it = L.flatMap(
+  L.range,
+  map((a) => a + 1, [1, 2, 3])
+);
+
+log(it.next());
+log(it.next());
+log(it.next());
+log(it.next());
+log(it.next());
+log(it.next());
+
+log(
+  take(
+    3,
+    L.flatMap(
+      L.range,
+      map((a) => a + 1, [1, 2, 3])
+    )
+  )
+);
