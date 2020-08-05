@@ -24,9 +24,9 @@ const isIterable = (a) => a && a[Symbol.iterator];
 
 L.flatten = function* (iter) {
   for (const a of iter) {
-    if (isIterable(a)) {
-      for (const b of a) yield b;
-    } else yield a;
+    if (isIterable(a)) yield* a;
+    // yield *iterable; is equal to for(const val of iterable) yield val;
+    else yield a;
   }
 };
 
