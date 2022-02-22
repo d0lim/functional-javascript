@@ -66,7 +66,10 @@ for (const a of map.entries()) log(a);
  * ### 사용자 정의 이터러블을 통해 알아보기
  */
 const iterable = {
-  [Symbol.iterator]() {
+
+  // [Symbol.iterator]() {
+  // [Symbol.iterator]: function() {
+  [Symbol.iterator]: () => {
     let i = 3;
     return {
       next() {
